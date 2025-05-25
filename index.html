@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lanza Tu Agencia Inmobiliaria Digital - Estilo Corporativo Moderno</title>
+    <meta name="description" content="Lanza tu agencia inmobiliaria digital con nuestra plataforma TODO EN UNO. Te damos herramientas, soporte y ¡tus primeros leads hasta 400.000€ en propiedades!">
+    <meta name="keywords" content="agencia inmobiliaria digital, emprender inmobiliaria, leads inmobiliarios, plataforma inmobiliaria, software inmobiliario, prescriptor inmobiliario, agente inmobiliario profesional">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f8f7; /* Un gris muy claro, casi blanco */
+            color: #333333; /* Gris oscuro para texto principal */
+        }
+
+        /* --- Colores Inspirados --- */
+        :root {
+            --color-primario-fondo: #005F60; /* Verde azulado oscuro */
+            --color-primario-texto: #FFFFFF;
+            --color-acento: #00A090; /* Verde/Turquesa brillante para CTAs */
+            --color-acento-hover: #007D6E;
+            --color-fondo-claro: #FFFFFF;
+            --color-texto-principal: #333333;
+            --color-texto-secundario: #555555;
+            --color-borde-sutil: #DDE2E1;
+        }
+
+        /* --- Global --- */
+        .container {
+            width: 90%;
+            max-width: 960px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            color: var(--color-primario-fondo); 
+            margin-bottom: 0.75em;
+        }
+        
+        h1 { font-size: 2.6rem; line-height: 1.2; }
+        h2 { font-size: 2rem; line-height: 1.3; }
+        h3 { font-size: 1.5rem; }
+
+        p {
+            margin-bottom: 1em;
+            font-size: 1.05rem;
+            color: var(--color-texto-secundario);
+        }
+
+        .text-center { text-align: center; }
+        .margin-top-2 { margin-top: 2rem; }
+
+        /* --- Header / Hero --- */
+        #hero {
+            background-color: var(--color-primario-fondo);
+            color: var(--color-primario-texto);
+            padding: 4rem 0;
+            text-align: center;
+            min-height: 70vh; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative; /* Para posicionar el vídeo si se quiere como fondo absoluto */
+            overflow: hidden; /* Para contener el vídeo si es fondo */
+        }
+        #hero h1 {
+            color: var(--color-primario-texto);
+            font-size: 2.8rem; 
+            font-weight: bold;
+            margin-bottom: 0.5em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            position: relative; /* Para que esté sobre el vídeo de fondo */
+            z-index: 2;
+        }
+        #hero .sub-headline {
+            font-size: 1.3rem;
+            margin-bottom: 1.5em;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+            color: var(--color-primario-texto) !important; 
+            position: relative; /* Para que esté sobre el vídeo de fondo */
+            z-index: 2;
+        }
+        #hero .hero-lead-highlight {
+            background-color: var(--color-acento); 
+            color: var(--color-primario-texto);
+            padding: 0.9rem 1.8rem;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 2rem;
+            border: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            position: relative; /* Para que esté sobre el vídeo de fondo */
+            z-index: 2;
+        }
+
+        /* --- Estilo para la imagen/video principal en el Hero --- */
+        .video-principal {
+            display: block;
+            margin: 25px auto; /* Ajusta según el diseño final del hero video */
+            max-width: 70%; /* O el ancho deseado, puedes hacerlo 100% y controlar con el contenedor */
+            width: 100%; /* Para que intente ocupar el ancho de su contenedor, si es lo deseado */
+            height: auto;     
+            border-radius: 8px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
+            border: 2px solid var(--color-primario-texto); 
+            background-color: #333; /* Color de fondo para el vídeo por si tarda en cargar */
+            position: relative; /* Para que esté sobre el vídeo de fondo si el video es el de abajo */
+            z-index: 2;
+            object-fit: cover; /* Para que cubra el espacio asignado */
+        }
+        
+        /* --- Estilo para imágenes/videos dentro de las secciones --- */
+        .imagen-seccion, .video-seccion {
+            display: block;
+            margin: 30px auto; 
+            max-width: 60%;   
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border: 1px solid var(--color-borde-sutil); 
+            background-color: #e0e0e0; /* Color de fondo para el vídeo por si tarda en cargar */
+            object-fit: cover; /* Para que cubra el espacio asignado */
+        }
+
+
+        /* --- CTA Button --- */
+        .cta-button {
+            display: inline-block;
+            background: var(--color-acento); 
+            color: var(--color-primario-texto) !important;
+            padding: 0.9rem 2.2rem;
+            text-decoration: none;
+            border-radius: 25px; 
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 160, 144, 0.3);
+            border: none;
+            position: relative; /* Para que esté sobre el vídeo de fondo */
+            z-index: 2;
+            cursor: pointer;
+        }
+        .cta-button:hover {
+            background: var(--color-acento-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 125, 110, 0.4);
+        }
+        .cta-button.secondary { 
+            background: transparent;
+            color: var(--color-acento) !important;
+            border: 2px solid var(--color-acento);
+            box-shadow: none;
+        }
+        .cta-button.secondary:hover {
+            background: var(--color-acento);
+            color: var(--color-primario-texto) !important;
+            box-shadow: 0 4px 12px rgba(0, 160, 144, 0.3);
+        }
+        .cta-button.small { 
+            font-size: 1rem;
+            padding: 0.8rem 1.5rem;
+        }
+        .cta-button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+        }
+
+
+        /* --- Sections --- */
+        section {
+            padding: 3.5rem 0;
+        }
+        section .container {
+             padding-top: 0; 
+             padding-bottom: 0;
+        }
+
+        section:nth-child(even) { 
+            background-color: var(--color-fondo-claro);
+        }
+        #differentiator, #solution, #roles, #tools, #income-opportunities, #why-now {
+            background-color: var(--color-fondo-claro);
+        }
+        
+        #differentiator {
+            background-color: #E8F3F2; 
+        }
+        #differentiator > .container > p {
+            color: var(--color-texto-principal); 
+        }
+        #differentiator .highlight-box {
+            background: var(--color-fondo-claro);
+            border-left: 4px solid var(--color-acento);
+            padding: 2rem;
+            margin-top: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+        }
+        #differentiator .highlight-box p strong {
+            color: var(--color-primario-fondo);
+            font-size: 1.3rem;
+        }
+
+        .benefits-grid, .income-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin-top: 2rem;
+        }
+        .benefit-item, .income-item {
+            background: var(--color-fondo-claro);
+            padding: 1.8rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            border: 1px solid var(--color-borde-sutil);
+        }
+        .benefit-item h3, .income-item h3 {
+            margin-top: 0;
+            color: var(--color-primario-fondo);
+        }
+        .benefit-item ul {
+            list-style: none;
+            padding: 0;
+        }
+        .benefit-item ul li {
+            padding-left: 1.5em;
+            position: relative;
+            margin-bottom: 0.5em;
+            color: var(--color-texto-secundario); 
+        }
+        .benefit-item ul li:before {
+            content: '✓'; 
+            color: var(--color-acento); 
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        #roles .roles-comparison {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            justify-content: space-around;
+            margin-top: 1.5rem; 
+        }
+        #roles .role-option {
+            background-color: #E8F3F2; 
+            padding: 2rem;
+            border-radius: 8px;
+            flex-basis: calc(50% - 1.8rem);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+            border: 1px solid var(--color-borde-sutil);
+        }
+        #roles .role-option h3 { color: var(--color-primario-fondo); }
+        #roles .role-option p {
+            color: var(--color-texto-principal); 
+        }
+
+        #tools .tools-list {
+            list-style: none;
+            padding: 0;
+            columns: 2; 
+            column-gap: 2rem;
+        }
+        #tools .tools-list li {
+            background: #f4f8f7; 
+            padding: 0.9rem 1.2rem;
+            margin-bottom: 0.9rem;
+            border-radius: 6px;
+            border-left: 3px solid var(--color-acento);
+            color: var(--color-texto-secundario); 
+        }
+        
+        #income-opportunities h2 {
+            color: var(--color-primario-fondo); 
+        }
+        #income-opportunities > .container > p {
+            color: var(--color-texto-principal); 
+        }
+        
+        #why-now {
+            border-top: 1px solid var(--color-borde-sutil);
+            border-bottom: 1px solid var(--color-borde-sutil);
+        }
+
+        #final-cta {
+            background: var(--color-primario-fondo);
+            color: var(--color-primario-texto); 
+            padding: 4rem 0;
+        }
+        #final-cta h2 {
+            color: var(--color-primario-texto);
+            font-size: 2.3rem;
+        }
+        #final-cta p { /* Párrafo introductorio de la sección Final CTA */
+            font-size: 1.15rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--color-primario-texto); /* Asegura color blanco */
+            opacity: 1; /* Asegura opacidad completa para blanco puro */
+        }
+        .contact-form-container {
+            background: var(--color-fondo-claro);
+            color: var(--color-texto-principal);
+            padding: 2.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .contact-form-container h3 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--color-primario-fondo); 
+        }
+        .contact-form-container label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: var(--color-texto-secundario); 
+        }
+        .contact-form-container input[type="text"],
+        .contact-form-container input[type="email"],
+        .contact-form-container textarea,
+        .contact-form-container select {
+            width: 100%;
+            padding: 0.9rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--color-borde-sutil);
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 1rem;
+            background-color: #fdfdfd;
+        }
+         .contact-form-container input[type="text"]:focus,
+        .contact-form-container input[type="email"]:focus,
+        .contact-form-container textarea:focus,
+        .contact-form-container select:focus {
+            border-color: var(--color-acento);
+            box-shadow: 0 0 0 2px rgba(0, 160, 144, 0.2);
+            outline: none;
+        }
+        .contact-form-container textarea {
+            min-height: 100px;
+        }
+        .contact-form-container input[type="submit"] { 
+            width: 100%;
+            font-size: 1.1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem 1rem;
+            background: #2F3E46; 
+            color: #A9B4BC; 
+            font-size: 0.9rem;
+        }
+        footer p { 
+            margin-bottom: 0.5em; 
+            color: #A9B4BC; 
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            #hero h1 { font-size: 2.3rem; }
+            #hero .sub-headline { font-size: 1.1rem; }
+            h2 { font-size: 1.7rem; }
+            #differentiator h2, #final-cta h2 { font-size: 1.9rem; }
+
+            .benefits-grid, .income-grid { grid-template-columns: 1fr; }
+            #roles .role-option { flex-basis: 100%; }
+            #tools .tools-list { columns: 1; }
+            .container { width: 95%; padding: 0 10px;} 
+             #hero .hero-lead-highlight { font-size: 1.1rem; padding: 0.8rem 1.5rem;}
+             .cta-button { font-size: 1rem; padding: 0.8rem 1.8rem;}
+            .video-principal {
+                max-width: 90%; 
+            }
+            .video-seccion {
+                max-width: 85%;
+            }
+        }
+         @media (max-width: 480px) {
+            #hero h1 { font-size: 2rem; }
+            #hero .sub-headline { font-size: 1rem; }
+            .video-principal {
+                max-width: 95%;
+                margin: 20px auto;
+            }
+            .video-seccion {
+                max-width: 90%;
+                margin: 20px auto;
+            }
+         }
+    </style>
+</head>
+<body itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Tu Plataforma Inmobiliaria Digital">
+    <meta itemprop="url" content="URL_DE_TU_LANDING_PAGE">
+    <link itemprop="logo" href="URL_DE_TU_LOGO.png">
+    <meta itemprop="description" content="Plataforma revolucionaria para lanzar tu agencia inmobiliaria digital, con herramientas, soporte y tus primeros clientes garantizados.">
+
+    <header id="hero">
+        <div class="container">
+            <h1>Lanza Tu Agencia Inmobiliaria Digital ¡Y Comienza a Construir Tu Éxito!</h1>
+            <p class="sub-headline">Descubre la plataforma revolucionaria que te da las herramientas, el soporte Y tus primeros clientes. El futuro del sector inmobiliario es AHORA, y es para ti.</p>
+            
+            <div itemprop="makesOffer" itemscope itemtype="http://schema.org/Offer" style="display: contents;">
+                <meta itemprop="name" content="Lanzamiento de Agencia Inmobiliaria Digital con Primeros Leads">
+                <meta itemprop="description" content="Te facilitamos tus primeros leads hasta sumar 400.000€ en propiedades a gestionar.">
+                <link itemprop="url" href="#final-cta"> 
+                <div itemprop="offeredBy" itemscope itemtype="http://schema.org/Organization" style="display: none;">
+                     <meta itemprop="name" content="Tu Plataforma Inmobiliaria Digital">
+                </div>
+            </div>
+
+            <video class="video-principal" autoplay muted loop playsinline poster="poster1.jpg" aria-label="Vídeo de presentación de la plataforma inmobiliaria.">
+                <source src="1.mp4" type="video/mp4">
+                Tu navegador no soporta la etiqueta de vídeo. Por favor, actualízalo.
+            </video>
+            
+            <p class="hero-lead-highlight">¡Te facilitamos tus primeros leads hasta sumar 400.000€ en propiedades!</p>
+            <a href="#final-cta" class="cta-button">¡Quiero Empezar YA!</a>
+        </div>
+    </header>
+
+    <main>
+        
+        <section id="differentiator" aria-labelledby="differentiator-heading">
+            <div class="container text-center">
+                <h2 id="differentiator-heading">¿Cansado de Promesas Vacías? Nosotros te damos RESULTADOS.</h2>
+                <p>Iniciar en el sector inmobiliario o escalar tu negocio puede ser un desafío: conseguir clientes, invertir grandes sumas, sentirte solo... Olvídate de eso.</p>
+                <div class="highlight-box">
+                    <h3>Tu Ventaja Única: ¡Clientes desde el Inicio!</h3>
+                    <p>Nuestra plataforma es la ÚNICA que te <strong>facilita los primeros leads hasta sumar 400.000€</strong> en propiedades a gestionar. Esto no es solo una herramienta, es la oportunidad real de tener <strong>tus primeros clientes y generar ingresos rápidamente</strong>. Es algo que "absolutamente nadie más te da".</p>
+                    <a href="#final-cta" class="cta-button secondary margin-top-2">Descubre Cómo Obtener Tus Leads</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="solution" aria-labelledby="solution-heading">
+            <div class="container">
+                <h2 id="solution-heading" class="text-center">Tu Agencia Digital TODO EN UNO: Simple, Potente y Rentable</h2>
+                <p class="text-center">Te ofrecemos una solución <strong>revolucionaria</strong> que conecta compradores, vendedores y agentes. Lanza tu <strong>agencia digital sin grandes inversiones ni riesgos</strong>, con tecnología <strong>simple, accesible y de altísimo valor</strong>.</p>
+                
+                <video class="video-seccion" autoplay muted loop playsinline poster="poster2.jpg" aria-label="Demostración de la plataforma inmobiliaria todo en uno.">
+                    <source src="2.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de vídeo. Por favor, actualízalo.
+                </video>
+
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <h3>Emprende Sin Barreras</h3>
+                        <p>Inicia tu negocio inmobiliario digital sin necesidad de una gran inversión inicial ni los riesgos tradicionales. Te damos todo para empezar.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h3>Tecnología de Vanguardia</h3>
+                        <p>Accede a una plataforma intuitiva que simplifica cada proceso, desde la captación hasta el cierre, conectando a todos los actores del mercado.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h3>Resultados Desde el Primer Momento</h3>
+                        <p>Con nuestro sistema de leads y el acompañamiento experto, estarás listo para trabajar y avanzar hacia tus objetivos desde el inicio.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="roles" aria-labelledby="roles-heading">
+            <div class="container">
+                <h2 id="roles-heading" class="text-center">Elige Tu Camino al Éxito: Tú Decides Cómo Crecer</h2>
+                <p class="text-center">Nuestra plataforma te da la flexibilidad de elegir el rol que mejor se adapte a tus ambiciones y estilo de vida.</p>
+                
+                <video class="video-seccion" autoplay muted loop playsinline poster="poster3.jpg" aria-label="Presentación de los roles de prescriptor y agente profesional.">
+                    <source src="3.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de vídeo. Por favor, actualízalo.
+                </video>
+
+                <div class="roles-comparison">
+                    <div class="role-option">
+                        <h3>Prescriptor Inmobiliario</h3>
+                        <p>Ideal para generar ingresos extra recomendando inmuebles. Gana comisiones por cada operación cerrada gracias a ti, con total libertad.</p>
+                        <a href="#final-cta" class="cta-button small">Más Info Prescriptor</a>
+                    </div>
+                    <div class="role-option">
+                        <h3>Agente Profesional Inmobiliario</h3>
+                        <p>Construye y escala tu propia agencia digital. Gestiona operaciones, accede a herramientas pro y desarrolla una carrera lucrativa con nuestro apoyo.</p>
+                        <a href="#final-cta" class="cta-button small">Más Info Agente Pro</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tools" aria-labelledby="tools-heading">
+            <div class="container">
+                <h2 id="tools-heading" class="text-center">Equipado para el Éxito: Herramientas y Soporte Sin Igual</h2>
+                <p class="text-center">Como Agente Profesional, tendrás un arsenal de recursos para maximizar tu eficiencia y resultados:</p>
+                
+                <img src="foto4.png" alt="Panel de control del CRM inmobiliario con herramientas avanzadas para agentes profesionales." class="imagen-seccion">
+
+                <ul class="tools-list margin-top-2">
+                    <li>CRM Completo e Intuitivo</li>
+                    <li>Volcado Automático a Portales</li>
+                    <li>Herramientas de Marketing Digital</li>
+                    <li>Notas Simples y Valoraciones</li>
+                    <li>Departamento Jurídico Experto</li>
+                    <li>Certificados Energéticos</li>
+                    <li>Fotografía Profesional y Tours Virtuales</li>
+                    <li>Homestaging Digital Avanzado</li>
+                    <li>Formación Continua y Actualizada</li>
+                    <li>Asesoría Especializada Personalizada</li>
+                    <li>Programas de Apadrinamiento</li>
+                    <li>Red Nacional de Colaboradores</li>
+                    <li>Sistema de Prescriptores para tu Equipo</li>
+                </ul>
+                <p class="text-center margin-top-2"><strong>¡Todo lo que necesitas para triunfar, en un solo lugar!</strong></p>
+            </div>
+        </section>
+
+        <section id="income-opportunities" style="background-color: #E8F3F2;" aria-labelledby="income-heading">
+            <div class="container">
+                <h2 id="income-heading" class="text-center">Maximiza Tus Ganancias: Múltiples Vías de Ingreso</h2>
+                <p class="text-center">No solo ganes por tus ventas. Nuestra plataforma te abre puertas a un crecimiento financiero sin precedentes.</p>
+                <div class="income-grid">
+                    <div class="income-item">
+                        <h3>Ingresos por Ventas y Equipo</h3>
+                        <p>Genera comisiones por tus operaciones y multiplica tus ganancias creando tu propia red de colaboradores. ¡El límite lo pones tú!</p>
+                    </div>
+                    <div class="income-item">
+                        <h3>Ingresos Recurrentes Atractivos</h3>
+                        <p>Ofrece servicios complementarios (financiación, seguros, suministros) y construye un flujo de ingresos pasivos que te dé estabilidad y crecimiento.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="why-now" aria-labelledby="why-now-heading">
+            <div class="container text-center">
+                <h2 id="why-now-heading">El Momento es AHORA: El Sector Inmobiliario Vive su Mejor Época</h2>
+                <p>El mercado está en auge y la digitalización es imparable. Nuestra plataforma te posiciona en la vanguardia, listo para capitalizar esta ola de oportunidades. Representamos el <strong>futuro del sector</strong>, un modelo para <strong>emprender, escalar y vivir del sector</strong> con las ventajas de lo digital y acompañamiento experto.</p>
+            </div>
+        </section>
+
+        <!-- FINAL CTA Y FORMULARIO DE CONTACTO -->
+        <section id="final-cta" aria-labelledby="final-cta-heading">
+            <div class="container text-center"> 
+                <h2 id="final-cta-heading">¿Listo para Transformar Tu Futuro Profesional y Obtener Tus Primeros Clientes?</h2>
+                <p>No esperes más. Da el primer paso hacia tu independencia financiera y el éxito en el sector inmobiliario. Completa el formulario y un asesor experto te contactará para mostrarte cómo.</p>
+                
+                <div class="contact-form-container">
+                    <h3>¡Empieza Tu Viaje Hoy!</h3>
+                    <form action="https://formspree.io/f/mkgrlrpj" method="POST"> 
+                        <label for="name">Nombre Completo:</label>
+                        <input type="text" id="name" name="name" placeholder="Ej: Ana García" required>
+
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" id="email" name="email" placeholder="Ej: ana.garcia@email.com" required>
+
+                        <label for="phone">Teléfono (Opcional):</label>
+                        <input type="text" id="phone" name="phone" placeholder="Ej: 600123456">
+
+                        <label for="role_interest">Rol de Interés Principal:</label>
+                        <select id="role_interest" name="role_interest">
+                            <option value="agent">Agente Profesional (¡Quiero mis leads!)</option>
+                            <option value="prescriptor">Prescriptor Inmobiliario</option>
+                            <option value="undecided">Necesito más información</option>
+                        </select>
+
+                        <label for="message">¿Algo más que debamos saber? (Opcional):</label>
+                        <textarea id="message" name="message" placeholder="Ej: Tengo experiencia previa, quiero empezar lo antes posible..."></textarea>
+
+                        <input type="submit" value="¡Sí, QUIERO MIS LEADS Y EMPEZAR!" class="cta-button">
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Tu Plataforma Inmobiliaria Digital. Todos los derechos reservados.</p>
+            <p>Transformando el sector inmobiliario, un agente a la vez.</p>
+        </div>
+    </footer>
+</body>
+</html>
