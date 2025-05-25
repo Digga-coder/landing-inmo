@@ -131,6 +131,7 @@
             border: 1px solid var(--color-borde-sutil); 
             background-color: #e0e0e0; /* Color de fondo para el vídeo por si tarda en cargar */
             object-fit: cover; /* Para que cubra el espacio asignado */
+            overflow: hidden; /* Asegura que el contenido se recorte a los bordes redondeados */
         }
 
 
@@ -421,7 +422,7 @@
     <header id="hero">
         <div class="container">
             <h1>Lanza Tu Agencia Inmobiliaria Digital ¡Y Comienza a Construir Tu Éxito!</h1>
-            <p class="sub-headline">Descubre la plataforma revolucionaria que te da las herramientas, el soporte Y tus primeros clientes. El futuro del sector inmobiliario es MARICA, y es para ti.</p>
+            <p class="sub-headline">Descubre la plataforma revolucionaria que te da las herramientas, el soporte Y tus primeros clientes. El futuro del sector inmobiliario es AHORA, y es para ti.</p>
             
             <div itemprop="makesOffer" itemscope itemtype="http://schema.org/Offer" style="display: contents;">
                 <meta itemprop="name" content="Lanzamiento de Agencia Inmobiliaria Digital con Primeros Leads">
@@ -555,6 +556,14 @@
             <div class="container text-center">
                 <h2 id="why-now-heading">El Momento es AHORA: El Sector Inmobiliario Vive su Mejor Época</h2>
                 <p>El mercado está en auge y la digitalización es imparable. Nuestra plataforma te posiciona en la vanguardia, listo para capitalizar esta ola de oportunidades. Representamos el <strong>futuro del sector</strong>, un modelo para <strong>emprender, escalar y vivir del sector</strong> con las ventajas de lo digital y acompañamiento experto.</p>
+                
+                <!-- MODIFICACIÓN DEL VIDEO AQUÍ -->
+                <video class="video-seccion" controls playsinline poster="poster_futuro.jpg" aria-label="El futuro del sector inmobiliario y cómo nuestra plataforma te ayuda a triunfar.">
+                    <source src="video.mp4" type="video/mp4">
+                    <!-- Considera añadir un formato .webm también para mejor compatibilidad -->
+                    <!-- <source src="video.webm" type="video/webm"> -->
+                    Tu navegador no soporta la etiqueta de vídeo. Por favor, actualízalo.
+                </video>
             </div>
         </section>
 
