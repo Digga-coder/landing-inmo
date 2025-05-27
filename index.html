@@ -3,440 +3,548 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lanza Tu Agencia Inmobiliaria Digital - Estilo Corporativo Moderno</title>
-    <meta name="description" content="Lanza tu agencia inmobiliaria digital con nuestra plataforma TODO EN UNO. Te damos herramientas, soporte y ¡tus primeros leads hasta 400.000€ en propiedades!">
-    <meta name="keywords" content="agencia inmobiliaria digital, emprender inmobiliaria, leads inmobiliarios, plataforma inmobiliaria, software inmobiliario, prescriptor inmobiliario, agente inmobiliario profesional">
+    <title>LYRAESTATE - Lanza Tu Agencia Inmobiliaria Digital</title>
+    <meta name="description" content="Lanza tu agencia inmobiliaria digital con LYRAESTATE, nuestra plataforma TODO EN UNO. Te damos herramientas, soporte y ¡tus primeros leads hasta 400.000€ en propiedades!">
+    <meta name="keywords" content="LYRAESTATE, agencia inmobiliaria digital, emprender inmobiliaria, leads inmobiliarios, plataforma inmobiliaria, software inmobiliario, prescriptor inmobiliario, agente inmobiliario profesional, crear inmobiliaria online, negocio inmobiliario digital">
     <style>
+        :root {
+            --color-primario-fondo: #0D2033; /* Azul Oxford (Muy oscuro) */
+            --color-primario-texto: #FFFFFF;
+            --color-acento: #B08D57;         /* Bronce Antiguo / Cobre Oscuro */
+            --color-acento-hover: #9A794A;   /* Bronce más oscuro para hover */
+            --color-fondo-claro: #FFFFFF;
+            --color-texto-principal: #333333; 
+            --color-texto-secundario: #555555;
+            --color-borde-sutil: #DDE2E1;
+            --color-fondo-seccion-alterna: #EBF3FA; 
+            
+            --color-overlay-fondo: rgba(13, 32, 51, 0.65); 
+            --color-overlay-fondo-ligero: rgba(13, 32, 51, 0.75); 
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f4f8f7; /* Un gris muy claro, casi blanco */
-            color: #333333; /* Gris oscuro para texto principal */
+            background-color: #f8f9fa; 
+            color: var(--color-texto-principal);
+            padding-top: 80px; 
         }
 
-        /* --- Colores Inspirados --- */
-        :root {
-            --color-primario-fondo: #005F60; /* Verde azulado oscuro */
-            --color-primario-texto: #FFFFFF;
-            --color-acento: #00A090; /* Verde/Turquesa brillante para CTAs */
-            --color-acento-hover: #007D6E;
-            --color-fondo-claro: #FFFFFF;
-            --color-texto-principal: #333333;
-            --color-texto-secundario: #555555;
-            --color-borde-sutil: #DDE2E1;
+        /* --- Navbar --- */
+        .navbar {
+            background-color: var(--color-primario-fondo);
+            color: var(--color-primario-texto);
+            padding: 0.75rem 0; 
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 25px; 
+        }
+
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem; 
+            font-weight: bold;
+            color: var(--color-primario-texto);
+            text-decoration: none;
+        }
+        .navbar .logo-icon {
+            height: 40px; 
+            width: auto;
+            margin-right: 0.7em;
+            vertical-align: middle; 
+        }
+
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center; 
+        }
+        .navbar ul li {
+            margin-left: 0.3rem; 
+        }
+        .navbar ul li a.nav-button {
+            color: var(--color-primario-texto);
+            background-color: transparent;
+            border: 1px solid var(--color-primario-texto); 
+            text-decoration: none;
+            padding: 0.5rem 1rem; 
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin: 0 0.2rem; 
+        }
+        .navbar ul li a.nav-button:hover, 
+        .navbar ul li a.nav-button.active {
+            background-color: var(--color-acento);
+            border-color: var(--color-acento);
+            color: var(--color-primario-texto);
+        }
+        
+        .navbar .cta-nav-button-wrapper {
+            position: relative; 
+            display: inline-block; 
+            text-decoration: none;
+            margin-left: 1.5em; 
+            font-weight: bold;
+            color: var(--color-primario-texto);
+            width: 105px; 
+            height: 52px; 
+            filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.2));
+        }
+        .navbar .cta-block-main,
+        .navbar .cta-block-accent {
+            position: absolute; 
+            background-color: var(--color-acento);
+            transition: background-color 0.3s ease;
+            padding: 0; 
+            font-size: 0.88rem; 
+            line-height: 28px; 
+            border-radius: 3px; 
+            box-sizing: border-box;
+            text-align: center;
+            color: var(--color-primario-texto); 
+        }
+        .navbar .cta-nav-button-wrapper:hover .cta-block-main,
+        .navbar .cta-nav-button-wrapper:hover .cta-block-accent {
+            background-color: var(--color-acento-hover);
+        }
+        .navbar .cta-block-main {
+            top: 0; left: 0; width: 100%;  height: 28px; z-index: 2;
+        }
+        .navbar .cta-block-accent {
+            top: 24px; left: 25px; width: 80px; height: 28px; z-index: 1;
+        }
+        
+        .nav-toggle {
+            display: none; 
+            font-size: 1.8rem;
+            color: var(--color-primario-texto);
+            background: none;
+            border: none;
+            cursor: pointer;
         }
 
         /* --- Global --- */
         .container {
             width: 90%;
-            max-width: 960px;
+            max-width: 1100px; 
             margin: auto;
-            overflow: hidden;
+            overflow: visible; 
             padding: 0 20px;
+            position: relative; 
+        }
+         .section-content-wrapper { 
+            position: relative;
+            z-index: 2;
+            padding: 2rem; 
+            border-radius: 8px; 
         }
 
         h1, h2, h3 {
-            color: var(--color-primario-fondo); 
             margin-bottom: 0.75em;
         }
-        
-        h1 { font-size: 2.6rem; line-height: 1.2; }
-        h2 { font-size: 2rem; line-height: 1.3; }
-        h3 { font-size: 1.5rem; }
+        h1 { font-size: 2.8rem; line-height: 1.2; font-weight: 700;}
+        h2 { font-size: 2.2rem; line-height: 1.3; font-weight: 600;}
+        h3 { font-size: 1.6rem; font-weight: 600;}
+        h4 { font-size: 1.2rem; margin-top: 1.5em; margin-bottom: 0.5em;}
 
         p {
             margin-bottom: 1em;
             font-size: 1.05rem;
-            color: var(--color-texto-secundario);
         }
 
         .text-center { text-align: center; }
         .margin-top-2 { margin-top: 2rem; }
+        .margin-bottom-2 { margin-bottom: 2rem; }
 
         /* --- Header / Hero --- */
         #hero {
-            background-color: var(--color-primario-fondo);
+            background-image: url('fondo1.jpg'); 
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
             color: var(--color-primario-texto);
-            padding: 4rem 0;
+            padding: 6rem 0; 
             text-align: center;
-            min-height: 70vh; 
+            min-height: calc(85vh - 80px); 
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            position: relative; /* Para posicionar el vídeo si se quiere como fondo absoluto */
-            overflow: hidden; /* Para contener el vídeo si es fondo */
+            position: relative; 
+            overflow: hidden; 
+        }
+        #hero::before { 
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: var(--color-overlay-fondo);
+            z-index: 1;
+        }
+        #hero .container { 
+            position: relative;
+            z-index: 2;
+        }
+        #hero h1, #hero .sub-headline, #hero .hero-lead-highlight {
+            color: var(--color-primario-texto);
         }
         #hero h1 {
-            color: var(--color-primario-texto);
-            font-size: 2.8rem; 
-            font-weight: bold;
+            font-size: 3.2rem; 
+            font-weight: 700;
             margin-bottom: 0.5em;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-            position: relative; /* Para que esté sobre el vídeo de fondo */
-            z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
         #hero .sub-headline {
-            font-size: 1.3rem;
-            margin-bottom: 1.5em;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0.9;
-            color: var(--color-primario-texto) !important; 
-            position: relative; /* Para que esté sobre el vídeo de fondo */
-            z-index: 2;
+            font-size: 1.5rem; 
+            margin-bottom: 2em;
+            max-width: 750px;
+            margin-left: auto; /* Para centrar si max-width está activo */
+            margin-right: auto; /* Para centrar si max-width está activo */
+            opacity: 0.95;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
         }
         #hero .hero-lead-highlight {
-            background-color: var(--color-acento); 
-            color: var(--color-primario-texto);
-            padding: 0.9rem 1.8rem;
-            border-radius: 8px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 2rem;
-            border: none;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-            position: relative; /* Para que esté sobre el vídeo de fondo */
-            z-index: 2;
-        }
-
-        /* --- Estilo para la imagen/video principal en el Hero --- */
-        .video-principal {
-            display: block;
-            margin: 25px auto; /* Ajusta según el diseño final del hero video */
-            max-width: 70%; /* O el ancho deseado, puedes hacerlo 100% y controlar con el contenedor */
-            width: 100%; /* Para que intente ocupar el ancho de su contenedor, si es lo deseado */
-            height: auto;     
-            border-radius: 8px; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
-            border: 2px solid var(--color-primario-texto); 
-            background-color: #333; /* Color de fondo para el vídeo por si tarda en cargar */
-            position: relative; /* Para que esté sobre el vídeo de fondo si el video es el de abajo */
-            z-index: 2;
-            object-fit: cover; /* Para que cubra el espacio asignado */
+            background-color: rgba(176, 141, 87, 0.85); /* Acento (Bronce) con transparencia */
+            padding: 1rem 2rem;
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
         }
         
-        /* --- Estilo para imágenes/videos dentro de las secciones --- */
         .imagen-seccion, .video-seccion {
             display: block;
             margin: 30px auto; 
             max-width: 60%;   
             height: auto;
             border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2); 
             border: 1px solid var(--color-borde-sutil); 
-            background-color: #e0e0e0; /* Color de fondo para el vídeo por si tarda en cargar */
-            object-fit: cover; /* Para que cubra el espacio asignado */
-            overflow: hidden; /* Asegura que el contenido se recorte a los bordes redondeados */
+            background-color: #e0e0e0; 
+            object-fit: cover; 
+            overflow: hidden; 
+        }
+        .video-principal-reubicado { /* Para el video de la sección "Nuestra Plataforma" */
+            display: block;
+            margin: 30px auto;
+            max-width: 70%; /* Un poco más grande que video-seccion normal */
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            border: 1px solid var(--color-borde-sutil);
+            background-color: #333; /* Placeholder mientras carga */
+            object-fit: cover;
+            overflow: hidden;
         }
 
 
-        /* --- CTA Button --- */
+        /* --- CTA Button (General) --- */
         .cta-button {
             display: inline-block;
             background: var(--color-acento); 
             color: var(--color-primario-texto) !important;
             padding: 0.9rem 2.2rem;
             text-decoration: none;
-            border-radius: 25px; 
+            border-radius: 5px; 
             font-weight: bold;
             font-size: 1.1rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0, 160, 144, 0.3);
+            box-shadow: 0 4px 12px rgba(176, 141, 87, 0.4); /* Sombra con color de acento */
             border: none;
-            position: relative; /* Para que esté sobre el vídeo de fondo */
+            position: relative; 
             z-index: 2;
             cursor: pointer;
         }
         .cta-button:hover {
             background: var(--color-acento-hover);
             transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0, 125, 110, 0.4);
+            box-shadow: 0 6px 15px rgba(154, 121, 74, 0.5);
         }
         .cta-button.secondary { 
             background: transparent;
             color: var(--color-acento) !important;
             border: 2px solid var(--color-acento);
-            box-shadow: none;
         }
-        .cta-button.secondary:hover {
+        .section-with-bg .cta-button.secondary { 
+             color: var(--color-primario-texto) !important;
+             border-color: var(--color-primario-texto);
+        }
+        .section-with-bg .cta-button.secondary:hover {
+            background: var(--color-primario-texto);
+            color: var(--color-primario-fondo) !important;
+        }
+        .cta-button.secondary:not(.section-with-bg .cta-button.secondary):hover {
             background: var(--color-acento);
             color: var(--color-primario-texto) !important;
-            box-shadow: 0 4px 12px rgba(0, 160, 144, 0.3);
         }
+
         .cta-button.small { 
             font-size: 1rem;
             padding: 0.8rem 1.5rem;
         }
-        .cta-button:disabled {
-            background-color: #ccc;
-            cursor: not-allowed;
-            box-shadow: none;
-            transform: none;
-        }
-
 
         /* --- Sections --- */
         section {
-            padding: 3.5rem 0;
+            padding: 4rem 0; 
+            position: relative; 
+            overflow: hidden; 
         }
-        section .container {
-             padding-top: 0; 
-             padding-bottom: 0;
+        section:not(.section-with-bg):not(#final-cta) h2,
+        section:not(.section-with-bg):not(#final-cta) h3,
+        section:not(.section-with-bg):not(#final-cta) h4 {
+            color: var(--color-primario-fondo);
+        }
+        section:not(.section-with-bg):not(#final-cta) p,
+        section:not(.section-with-bg):not(#final-cta) li {
+            color: var(--color-texto-secundario);
+        }
+        section:not(.section-with-bg):not(#final-cta) strong {
+             color: var(--color-texto-principal);
         }
 
-        section:nth-child(even) { 
-            background-color: var(--color-fondo-claro);
+        .section-with-bg {
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            color: var(--color-primario-texto); 
         }
-        #differentiator, #solution, #roles, #tools, #income-opportunities, #why-now {
-            background-color: var(--color-fondo-claro);
+        .section-with-bg::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: var(--color-overlay-fondo-ligero); 
+            z-index: 1;
         }
+        .section-with-bg .container, 
+        .section-with-bg h2, 
+        .section-with-bg h3, 
+        .section-with-bg h4, 
+        .section-with-bg p,
+        .section-with-bg strong,
+        .section-with-bg li,
+        .section-with-bg .author {
+            position: relative;
+            z-index: 2;
+            color: var(--color-primario-texto); 
+        }
+         .section-with-bg .benefit-item, 
+         .section-with-bg .income-item,
+         .section-with-bg .role-option,
+         .section-with-bg .testimonial-item,
+         .section-with-bg .faq-item,
+         .section-with-bg .feature-item,
+         .section-with-bg .step-item { 
+            background: rgba(0, 0, 0, 0.35); 
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .section-with-bg .benefit-item h3, 
+        .section-with-bg .income-item h3,
+        .section-with-bg .role-option h3, 
+        .section-with-bg .faq-item h4,
+        .section-with-bg .feature-item h3,
+        .section-with-bg .step-item h3 {
+            color: var(--color-acento); 
+        }
+        .section-with-bg .testimonial-item p { 
+            color: var(--color-primario-texto);
+            font-style: italic;
+        }
+        .section-with-bg .testimonial-item .author {
+            color: var(--color-acento); 
+        }
+        .section-with-bg .benefit-item ul li:before,
+        .section-with-bg .feature-item ul li:before {
+             color: var(--color-primario-texto); 
+        }
+
+        #solution { background-image: url('fondo3.jpg'); } 
+        #why-now { background-image: url('fondo2.jpg'); } 
         
-        #differentiator {
-            background-color: #E8F3F2; 
+        #differentiator,
+        section[style*="background-color: var(--color-fondo-seccion-alterna)"] { 
+            background-color: var(--color-fondo-seccion-alterna); 
         }
-        #differentiator > .container > p {
-            color: var(--color-texto-principal); 
+        #differentiator h2, #differentiator p,
+        section[style*="background-color: var(--color-fondo-seccion-alterna)"] h2,
+        section[style*="background-color: var(--color-fondo-seccion-alterna)"] p {
+            color: var(--color-texto-principal);
         }
+         #differentiator h3,
+         section[style*="background-color: var(--color-fondo-seccion-alterna)"] h3 {
+             color: var(--color-primario-fondo);
+         }
         #differentiator .highlight-box {
             background: var(--color-fondo-claro);
             border-left: 4px solid var(--color-acento);
-            padding: 2rem;
-            margin-top: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+            padding: 2rem; margin-top: 1.5rem; border-radius: 8px; box-shadow: 0 3px 12px rgba(0,0,0,0.07);
         }
-        #differentiator .highlight-box p strong {
-            color: var(--color-primario-fondo);
-            font-size: 1.3rem;
-        }
+        #differentiator .highlight-box p { color: var(--color-texto-secundario); }
+        #differentiator .highlight-box p strong { color: var(--color-primario-fondo); font-size: 1.3rem; }
 
-        .benefits-grid, .income-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.8rem;
-            margin-top: 2rem;
+        .benefits-grid, .income-grid, .features-grid, .how-it-works-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;
         }
-        .benefit-item, .income-item {
-            background: var(--color-fondo-claro);
-            padding: 1.8rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-            border: 1px solid var(--color-borde-sutil);
+        .benefit-item, .income-item, .feature-item, .step-item, .testimonial-item, .faq-item {
+            background: var(--color-fondo-claro); padding: 2rem; border-radius: 6px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); border: 1px solid var(--color-borde-sutil);
         }
-        .benefit-item h3, .income-item h3 {
-            margin-top: 0;
+        section:not(.section-with-bg) .benefit-item h3,
+        section:not(.section-with-bg) .income-item h3,
+        section:not(.section-with-bg) .feature-item h3,
+        section:not(.section-with-bg) .step-item h3,
+        section:not(.section-with-bg) .faq-item h4,
+        section:not(.section-with-bg) .role-option h4 {
             color: var(--color-primario-fondo);
         }
-        .benefit-item ul {
-            list-style: none;
-            padding: 0;
-        }
-        .benefit-item ul li {
-            padding-left: 1.5em;
-            position: relative;
-            margin-bottom: 0.5em;
-            color: var(--color-texto-secundario); 
-        }
-        .benefit-item ul li:before {
-            content: '✓'; 
-            color: var(--color-acento); 
-            position: absolute;
-            left: 0;
-            font-weight: bold;
+        section:not(.section-with-bg) .role-option h3 { 
+             color: var(--color-primario-fondo);
         }
 
-        #roles .roles-comparison {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.8rem;
-            justify-content: space-around;
-            margin-top: 1.5rem; 
+        .benefit-item ul, .feature-item ul { list-style: none; padding: 0; }
+        .benefit-item ul li, .feature-item ul li { padding-left: 1.5em; position: relative; margin-bottom: 0.5em; }
+        section:not(.section-with-bg) .benefit-item ul li:before, 
+        section:not(.section-with-bg) .feature-item ul li:before {
+            content: '✓'; color: var(--color-acento); position: absolute; left: 0; font-weight: bold;
         }
-        #roles .role-option {
-            background-color: #E8F3F2; 
-            padding: 2rem;
-            border-radius: 8px;
-            flex-basis: calc(50% - 1.8rem);
-            box-shadow: 0 3px 10px rgba(0,0,0,0.07);
-            border: 1px solid var(--color-borde-sutil);
-        }
-        #roles .role-option h3 { color: var(--color-primario-fondo); }
-        #roles .role-option p {
-            color: var(--color-texto-principal); 
-        }
+        .step-item .step-number { background-color: var(--color-acento); color: var(--color-primario-texto); }
 
-        #tools .tools-list {
-            list-style: none;
-            padding: 0;
-            columns: 2; 
-            column-gap: 2rem;
-        }
-        #tools .tools-list li {
-            background: #f4f8f7; 
-            padding: 0.9rem 1.2rem;
-            margin-bottom: 0.9rem;
-            border-radius: 6px;
-            border-left: 3px solid var(--color-acento);
-            color: var(--color-texto-secundario); 
-        }
+        .section-header-with-logo { display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
+        .section-header-with-logo img.section-logo { height: 50px; width: auto; margin-right: 15px; }
+        .section-header-with-logo:not(.text-center) { justify-content: flex-start; }
+        h2.section-title-after-logo { margin-bottom: 0; }
+
+        #roles .role-option { flex-basis: calc(50% - 2rem); }
+        #tools .tools-list { columns: 2; column-gap: 2.5rem; }
+        #tools .tools-list li { background: #f9fbfb; padding: 1rem 1.3rem; border-left: 3px solid var(--color-acento); }
         
-        #income-opportunities h2 {
-            color: var(--color-primario-fondo); 
-        }
-        #income-opportunities > .container > p {
-            color: var(--color-texto-principal); 
-        }
-        
-        #why-now {
-            border-top: 1px solid var(--color-borde-sutil);
-            border-bottom: 1px solid var(--color-borde-sutil);
-        }
-
-        #final-cta {
-            background: var(--color-primario-fondo);
-            color: var(--color-primario-texto); 
-            padding: 4rem 0;
-        }
-        #final-cta h2 {
-            color: var(--color-primario-texto);
-            font-size: 2.3rem;
-        }
-        #final-cta p { /* Párrafo introductorio de la sección Final CTA */
-            font-size: 1.15rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            color: var(--color-primario-texto); /* Asegura color blanco */
-            opacity: 1; /* Asegura opacidad completa para blanco puro */
-        }
+        #final-cta { background: var(--color-primario-fondo); }
+        #final-cta h2, #final-cta p { color: var(--color-primario-texto); }
         .contact-form-container {
-            background: var(--color-fondo-claro);
-            color: var(--color-texto-principal);
-            padding: 2.5rem;
-            border-radius: 8px;
-            margin-top: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            background: var(--color-primario-fondo); 
+            padding: 3rem; border-radius: 8px; margin-top: 2rem; max-width: 650px; margin-left: auto; margin-right: auto; box-shadow: 0 5px 25px rgba(0,0,0,0.2);
         }
-        .contact-form-container h3 {
-            text-align: center;
-            margin-bottom: 1.5rem;
-            color: var(--color-primario-fondo); 
-        }
-        .contact-form-container label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: bold;
-            color: var(--color-texto-secundario); 
-        }
+        .contact-form-container h3 { text-align: center; margin-bottom: 2rem; color: var(--color-primario-texto); font-size: 1.8rem; }
+        .contact-form-container label { display: block; margin-bottom: 0.6rem; font-weight: bold; color: var(--color-primario-texto); font-size: 0.95rem; }
         .contact-form-container input[type="text"],
         .contact-form-container input[type="email"],
         .contact-form-container textarea,
         .contact-form-container select {
-            width: 100%;
-            padding: 0.9rem;
-            margin-bottom: 1rem;
-            border: 1px solid var(--color-borde-sutil);
-            border-radius: 6px;
-            box-sizing: border-box;
-            font-size: 1rem;
-            background-color: #fdfdfd;
+            width: 100%; padding: 0.9rem 1rem; margin-bottom: 1.2rem; border: 1px solid var(--color-borde-sutil); border-radius: 4px; box-sizing: border-box; font-size: 1rem; background-color: var(--color-fondo-claro); color: var(--color-texto-principal);
         }
-         .contact-form-container input[type="text"]:focus,
+        .contact-form-container input[type="text"]:focus,
         .contact-form-container input[type="email"]:focus,
         .contact-form-container textarea:focus,
         .contact-form-container select:focus {
-            border-color: var(--color-acento);
-            box-shadow: 0 0 0 2px rgba(0, 160, 144, 0.2);
-            outline: none;
+            border-color: var(--color-acento); box-shadow: 0 0 0 3px rgba(176, 141, 87, 0.25); outline: none;
         }
-        .contact-form-container textarea {
-            min-height: 100px;
-        }
-        .contact-form-container input[type="submit"] { 
-            width: 100%;
-            font-size: 1.1rem;
-        }
+        .contact-form-container textarea { min-height: 120px; }
+        .contact-form-container input[type="submit"] { width: 100%; font-size: 1.15rem; padding: 1rem 2.2rem; }
 
-        footer {
-            text-align: center;
-            padding: 2.5rem 1rem;
-            background: #2F3E46; 
-            color: #A9B4BC; 
-            font-size: 0.9rem;
-        }
-        footer p { 
-            margin-bottom: 0.5em; 
-            color: #A9B4BC; 
-        }
+        footer { padding: 3rem 1rem; background: var(--color-primario-fondo); color: #A9B4BC; }
+        footer p { color: #A9B4BC; }
+        footer a { color: var(--color-acento); }
 
+        @media (max-width: 992px) { 
+            .navbar .nav-links { display: none; flex-direction: column; width: 100%; position: absolute; top: calc(100% - 1px); left: 0; background-color: var(--color-primario-fondo); padding: 1rem 0; box-shadow: 0 3px 5px rgba(0,0,0,0.1); }
+            .navbar .nav-links.active { display: flex; }
+            .navbar ul li { width: 100%; text-align: center; margin-left: 0; margin-bottom: 0.5rem; }
+            .navbar ul li a.nav-button { padding: 0.8rem 1rem; display: block; margin: 0.3rem auto; width: 80%; }
+            .navbar .cta-nav-button-wrapper { display: block; margin: 0.5rem auto; width: 80%; height: auto; }
+            .navbar .cta-block-main, .navbar .cta-block-accent { position: static; display:block; width: 100%; margin-bottom: 2px; line-height: 2rem; font-size: 0.9rem;}
+            .navbar .cta-block-accent { margin-top: -2px; } 
+            .nav-toggle { display: block; }
+        }
         @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
-            #hero h1 { font-size: 2.3rem; }
-            #hero .sub-headline { font-size: 1.1rem; }
-            h2 { font-size: 1.7rem; }
-            #differentiator h2, #final-cta h2 { font-size: 1.9rem; }
-
-            .benefits-grid, .income-grid { grid-template-columns: 1fr; }
-            #roles .role-option { flex-basis: 100%; }
+            body { padding-top: 70px; } 
+            #hero { min-height: calc(90vh - 70px); padding: 4rem 0; }
+            #hero h1 { font-size: 2.5rem; } #hero .sub-headline { font-size: 1.2rem; }
+            h2 { font-size: 1.9rem; }
+            .section-header-with-logo img.section-logo { height: 40px; margin-right: 10px;}
+            .benefits-grid, .income-grid, .features-grid, .how-it-works-grid { grid-template-columns: 1fr; }
+            #roles .role-option { flex-basis: 100%; margin-bottom: 1.5rem; }
             #tools .tools-list { columns: 1; }
-            .container { width: 95%; padding: 0 10px;} 
-             #hero .hero-lead-highlight { font-size: 1.1rem; padding: 0.8rem 1.5rem;}
-             .cta-button { font-size: 1rem; padding: 0.8rem 1.8rem;}
-            .video-principal {
-                max-width: 90%; 
-            }
-            .video-seccion {
-                max-width: 85%;
-            }
+            .container { width: 95%; padding: 0 15px;} 
+            .video-principal-reubicado, .imagen-seccion, .video-seccion { max-width: 85%; }
+            .navbar .logo { font-size: 1.5rem; } .navbar .logo-icon { height: 35px; }
+            .contact-form-container { padding: 2rem; }
         }
-         @media (max-width: 480px) {
-            #hero h1 { font-size: 2rem; }
-            #hero .sub-headline { font-size: 1rem; }
-            .video-principal {
-                max-width: 95%;
-                margin: 20px auto;
-            }
-            .video-seccion {
-                max-width: 90%;
-                margin: 20px auto;
-            }
-         }
+        @media (max-width: 480px) {
+            body { padding-top: 65px; } 
+            #hero { min-height: calc(90vh - 65px); padding: 3rem 0;}
+            #hero h1 { font-size: 2.1rem; } #hero .sub-headline { font-size: 1.1rem; }
+            h2 { font-size: 1.7rem; }
+            .section-header-with-logo img.section-logo { height: 35px; }
+            .video-principal-reubicado, .imagen-seccion, .video-seccion { max-width: 90%; }
+            .navbar .logo { font-size: 1.3rem; } .navbar .logo-icon { height: 30px; margin-right: 0.4em;}
+            .navbar ul li a.nav-button { font-size: 0.85rem; padding: 0.7rem 0.8rem; width: 90%; }
+            .navbar .cta-nav-button-wrapper { width: 90%; }
+            .contact-form-container { padding: 1.5rem; }
+            .contact-form-container h3 { font-size: 1.5rem; }
+        }
     </style>
 </head>
 <body itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Tu Plataforma Inmobiliaria Digital">
-    <meta itemprop="url" content="URL_DE_TU_LANDING_PAGE">
-    <link itemprop="logo" href="URL_DE_TU_LOGO.png">
-    <meta itemprop="description" content="Plataforma revolucionaria para lanzar tu agencia inmobiliaria digital, con herramientas, soporte y tus primeros clientes garantizados.">
+    <meta itemprop="name" content="LYRAESTATE - Tu Plataforma Inmobiliaria Digital">
+    <meta itemprop="url" content="URL_DE_TU_PAGINA_WEB_COMPLETA"> 
+    <link itemprop="logo" href="logo.png"> 
+    <meta itemprop="description" content="Plataforma revolucionaria de LYRAESTATE para lanzar tu agencia inmobiliaria digital, con herramientas, soporte y tus primeros clientes garantizados. Emprende, crece y triunfa.">
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="#hero" class="logo">
+                <img src="logo.png" alt="LYRAESTATE Icono" class="logo-icon"> LYRAESTATE
+            </a>
+            <button class="nav-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="nav-links-menu">
+                ☰
+            </button>
+            <ul class="nav-links" id="nav-links-menu">
+                <li><a href="#hero" class="nav-button">Inicio</a></li>
+                <li><a href="#sobre-nosotros" class="nav-button">Sobre Nosotros</a></li>
+                <li><a href="#nuestra-plataforma" class="nav-button">Plataforma</a></li>
+                <li><a href="#como-funciona" class="nav-button">Cómo Funciona</a></li>
+                <li><a href="#testimonios-section" class="nav-button">Testimonios</a></li>
+                <li><a href="#faq-section" class="nav-button">FAQ</a></li>
+                <li> 
+                    <a href="#final-cta" class="cta-nav-button-wrapper">
+                        <span class="cta-block-main">¡Empieza</span>
+                        <span class="cta-block-accent">Ahora!</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
     <header id="hero">
         <div class="container">
-            <h1>Lanza Tu Agencia Inmobiliaria Digital ¡Y Comienza a Construir Tu Éxito!</h1>
-            <p class="sub-headline">Descubre la plataforma revolucionaria que te da las herramientas, el soporte Y tus primeros clientes. El futuro del sector inmobiliario es AHORA, y es para ti.</p>
+            <h1>Lanza Tu Agencia Inmobiliaria Digital ¡Y Comienza a Construir Tu Éxito con LYRAESTATE!</h1>
+            <p class="sub-headline">Descubre la plataforma revolucionaria de LYRAESTATE que te da las herramientas, el soporte Y tus primeros clientes. El futuro del sector inmobiliario es AHORA, y es para ti.</p>
             
             <div itemprop="makesOffer" itemscope itemtype="http://schema.org/Offer" style="display: contents;">
-                <meta itemprop="name" content="Lanzamiento de Agencia Inmobiliaria Digital con Primeros Leads">
+                <meta itemprop="name" content="Lanzamiento de Agencia Inmobiliaria Digital con Primeros Leads - LYRAESTATE">
                 <meta itemprop="description" content="Te facilitamos tus primeros leads hasta sumar 400.000€ en propiedades a gestionar.">
                 <link itemprop="url" href="#final-cta"> 
                 <div itemprop="offeredBy" itemscope itemtype="http://schema.org/Organization" style="display: none;">
-                     <meta itemprop="name" content="Tu Plataforma Inmobiliaria Digital">
+                     <meta itemprop="name" content="LYRAESTATE">
                 </div>
             </div>
-
-            <video class="video-principal" autoplay muted loop playsinline poster="poster1.jpg" aria-label="Vídeo de presentación de la plataforma inmobiliaria.">
-                <source src="1.mp4" type="video/mp4">
-                Tu navegador no soporta la etiqueta de vídeo. Por favor, actualízalo.
-            </video>
             
             <p class="hero-lead-highlight">¡Te facilitamos tus primeros leads hasta sumar 400.000€ en propiedades!</p>
             <a href="#final-cta" class="cta-button">¡Quiero Empezar YA!</a>
@@ -444,137 +552,294 @@
     </header>
 
     <main>
-        
-        <section id="differentiator" aria-labelledby="differentiator-heading">
+        <section id="sobre-nosotros" aria-labelledby="sobre-nosotros-heading">
             <div class="container text-center">
-                <h2 id="differentiator-heading">¿Cansado de Promesas Vacías? Nosotros te damos RESULTADOS.</h2>
+                <div class="section-header-with-logo text-center">
+                    <img src="logo.png" alt="LYRAESTATE Logo" class="section-logo">
+                    <h2 id="sobre-nosotros-heading" class="section-title-after-logo">Nuestra Misión en LYRAESTATE: Revolucionar Tu Futuro Inmobiliario</h2>
+                </div>
+                <p>En LYRAESTATE, nacimos con la convicción de que emprender en el sector inmobiliario debe ser accesible, rentable y emocionante. Combinamos tecnología de punta con un profundo conocimiento del mercado para ofrecerte una solución que elimina barreras y te impulsa hacia el éxito.</p>
+                <img src="foto4.png" alt="Equipo de LYRAESTATE trabajando en la plataforma" class="imagen-seccion" style="max-width: 450px;">
+                <p>Creemos en el poder de la colaboración, la innovación constante y, sobre todo, en el potencial de cada emprendedor. Por eso, no solo te damos herramientas, te acompañamos en cada paso, asegurando que tengas todo lo necesario para construir la agencia digital de tus sueños y alcanzar la libertad financiera con LYRAESTATE.</p>
+                <a href="#nuestra-plataforma" class="cta-button secondary margin-top-2">Conoce Nuestra Plataforma</a>
+            </div>
+        </section>
+
+        <section id="differentiator" aria-labelledby="differentiator-heading"> 
+            <div class="container text-center">
+                <h2 id="differentiator-heading">¿Cansado de Promesas Vacías? En LYRAESTATE te damos RESULTADOS.</h2>
                 <p>Iniciar en el sector inmobiliario o escalar tu negocio puede ser un desafío: conseguir clientes, invertir grandes sumas, sentirte solo... Olvídate de eso.</p>
                 <div class="highlight-box">
-                    <h3>Tu Ventaja Única: ¡Clientes desde el Inicio!</h3>
+                    <h3>Tu Ventaja Única con LYRAESTATE: ¡Clientes desde el Inicio!</h3>
                     <p>Nuestra plataforma es la ÚNICA que te <strong>facilita los primeros leads hasta sumar 400.000€</strong> en propiedades a gestionar. Esto no es solo una herramienta, es la oportunidad real de tener <strong>tus primeros clientes y generar ingresos rápidamente</strong>. Es algo que "absolutamente nadie más te da".</p>
                     <a href="#final-cta" class="cta-button secondary margin-top-2">Descubre Cómo Obtener Tus Leads</a>
                 </div>
             </div>
         </section>
 
-        <section id="solution" aria-labelledby="solution-heading">
+        <section id="nuestra-plataforma" aria-labelledby="nuestra-plataforma-heading">
             <div class="container">
-                <h2 id="solution-heading" class="text-center">Tu Agencia Digital TODO EN UNO: Simple, Potente y Rentable</h2>
-                <p class="text-center">Te ofrecemos una solución <strong>revolucionaria</strong> que conecta compradores, vendedores y agentes. Lanza tu <strong>agencia digital sin grandes inversiones ni riesgos</strong>, con tecnología <strong>simple, accesible y de altísimo valor</strong>.</p>
+                 <div class="section-header-with-logo text-center">
+                    <img src="logo.png" alt="LYRAESTATE Logo" class="section-logo">
+                    <h2 id="nuestra-plataforma-heading" class="section-title-after-logo text-center">Tu Agencia Digital TODO EN UNO con LYRAESTATE: Simple, Potente y Rentable</h2>
+                </div>
+                <p class="text-center margin-bottom-2">Te ofrecemos una solución <strong>revolucionaria</strong> que conecta compradores, vendedores y agentes. Lanza tu <strong>agencia digital sin grandes inversiones ni riesgos</strong>, con tecnología <strong>simple, accesible y de altísimo valor</strong>.</p>
                 
-                <video class="video-seccion" autoplay muted loop playsinline poster="poster2.jpg" aria-label="Demostración de la plataforma inmobiliaria todo en uno.">
+                <video class="video-principal-reubicado" autoplay muted loop playsinline poster="poster1.jpg" aria-label="Vídeo de presentación de la plataforma inmobiliaria LYRAESTATE.">
+                    <source src="1.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de vídeo. Por favor, actualízalo.
+                </video>
+
+                <h3 class="text-center margin-top-2">¿Qué te Ofrecemos en LYRAESTATE?</h3>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h3>Plataforma Intuitiva y Centralizada</h3>
+                        <p>Gestiona todo desde un solo lugar: propiedades, clientes, marketing, documentos y más. Fácil de usar, potente en resultados.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Generación de Leads Cualificados</h3>
+                        <p>No solo te damos la caña, ¡te damos los peces! Recibe leads de vendedores para impulsar tu cartera desde el día uno.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Soporte y Formación Continua</h3>
+                        <p>Desde asesoría legal y técnica hasta estrategias de marketing, nuestro equipo de expertos de LYRAESTATE te acompaña para que nunca te sientas solo.</p>
+                    </div>
+                </div>
+                
+                <video class="video-seccion margin-top-2" autoplay muted loop playsinline poster="poster2.jpg" aria-label="Demostración de la plataforma inmobiliaria LYRAESTATE todo en uno.">
                     <source src="2.mp4" type="video/mp4">
                     Tu navegador no soporta la etiqueta de vídeo. Por favor, actualízalo.
                 </video>
 
+                <div id="roles" class="margin-top-2"> 
+                    <h3 id="roles-subheading" class="text-center">Elige Tu Camino al Éxito con LYRAESTATE: Tú Decides Cómo Crecer</h3>
+                    <p class="text-center">Nuestra plataforma te da la flexibilidad de elegir el rol que mejor se adapte a tus ambiciones y estilo de vida.</p>
+                    
+                    <video class="video-seccion" autoplay muted loop playsinline poster="poster3.jpg" aria-label="Presentación de los roles de prescriptor y agente profesional en LYRAESTATE.">
+                        <source src="3.mp4" type="video/mp4">
+                        Tu navegador no soporta la etiqueta de vídeo. Por favor, actualízalo.
+                    </video>
+
+                    <div class="roles-comparison">
+                        <div class="role-option">
+                            <h4>Prescriptor Inmobiliario LYRAESTATE</h4>
+                            <p>Ideal para generar ingresos extra recomendando inmuebles. Gana comisiones por cada operación cerrada gracias a ti, con total libertad y sin la carga de gestión completa.</p>
+                            <ul class="margin-top-2">
+                                <li>Flexibilidad total de horarios.</li>
+                                <li>Formación específica para prescriptores.</li>
+                                <li>Sistema de seguimiento de tus referidos.</li>
+                                <li>Atractivas comisiones por éxito.</li>
+                            </ul>
+                            <a href="#final-cta" class="cta-button small margin-top-2">Más Info Prescriptor</a>
+                        </div>
+                        <div class="role-option">
+                            <h4>Agente Profesional Inmobiliario LYRAESTATE</h4>
+                            <p>Construye y escala tu propia agencia digital. Gestiona operaciones, accede a herramientas pro y desarrolla una carrera lucrativa con nuestro apoyo integral.</p>
+                             <ul class="margin-top-2">
+                                <li>Acceso a la plataforma completa y CRM.</li>
+                                <li>Leads de captación garantizados.</li>
+                                <li>Soporte legal, marketing y técnico.</li>
+                                <li>Potencial de ingresos ilimitado.</li>
+                            </ul>
+                            <a href="#final-cta" class="cta-button small margin-top-2">Más Info Agente Profesional</a>
+                        </div>
+                    </div>
+                </div>
+                <div id="tools" class="margin-top-2"> 
+                    <h3 id="tools-subheading" class="text-center">Equipado para el Éxito: Herramientas Exclusivas para Agentes Profesionales LYRAESTATE</h3>
+                    <p class="text-center">Como Agente Profesional, tendrás un arsenal de recursos para maximizar tu eficiencia y resultados:</p>
+                    
+                    <img src="foto4.png" alt="Panel de control del CRM inmobiliario LYRAESTATE con herramientas avanzadas para agentes profesionales." class="imagen-seccion">
+
+                    <ul class="tools-list margin-top-2">
+                        <li>CRM Completo e Intuitivo</li>
+                        <li>Volcado Automático a Portales</li>
+                        <li>Herramientas de Marketing Digital</li>
+                        <li>Notas Simples y Valoraciones</li>
+                        <li>Departamento Jurídico Experto</li>
+                        <li>Certificados Energéticos</li>
+                        <li>Fotografía Profesional y Tours Virtuales</li>
+                        <li>Homestaging Digital Avanzado</li>
+                        <li>Formación Continua y Actualizada</li>
+                        <li>Asesoría Especializada Personalizada</li>
+                        <li>Programas de Apadrinamiento</li>
+                        <li>Red Nacional de Colaboradores</li>
+                        <li>Sistema de Prescriptores para tu Equipo</li>
+                        <li>Generación de Contratos Automatizada</li>
+                        <li>Software de Valoración de Inmuebles</li>
+                        <li>Integración con Agenda y Calendario</li>
+                    </ul>
+                    <p class="text-center margin-top-2"><strong>¡Todo lo que necesitas para triunfar con LYRAESTATE, en un solo lugar!</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="como-funciona" aria-labelledby="como-funciona-heading" style="background-color: var(--color-fondo-seccion-alterna);"> 
+            <div class="container">
+                 <div class="section-header-with-logo text-center">
+                    <img src="logo.png" alt="LYRAESTATE Logo" class="section-logo">
+                    <h2 id="como-funciona-heading" class="section-title-after-logo text-center">Empezar con LYRAESTATE es Muy Sencillo: Tu Camino al Éxito en 4 Pasos</h2>
+                </div>
+                <div class="how-it-works-grid">
+                    <div class="step-item">
+                        <span class="step-number">1</span>
+                        <h3>Regístrate y Elige Tu Rol</h3>
+                        <p>Completa nuestro formulario y un asesor de LYRAESTATE te contactará para definir el camino que mejor se adapta a ti: Prescriptor o Agente Profesional.</p>
+                    </div>
+                    <div class="step-item">
+                        <span class="step-number">2</span>
+                        <h3>Accede a la Plataforma y Formación</h3>
+                        <p>Recibe tus credenciales, explora las herramientas y participa en nuestras sesiones de formación inicial para dominar la plataforma LYRAESTATE.</p>
+                    </div>
+                    <div class="step-item">
+                        <span class="step-number">3</span>
+                        <h3>¡Recibe Tus Primeros Leads!</h3>
+                        <p>Si eres Agente Profesional, comenzaremos a facilitarte leads de captación hasta 400.000€ en valor de propiedades para que empieces a trabajar.</p>
+                    </div>
+                    <div class="step-item">
+                        <span class="step-number">4</span>
+                        <h3>Gestiona, Cierra y Crece</h3>
+                        <p>Utiliza nuestras herramientas y soporte LYRAESTATE para gestionar tus clientes, cerrar operaciones y hacer crecer tu negocio inmobiliario digital.</p>
+                    </div>
+                </div>
+                <div class="text-center margin-top-2">
+                    <a href="#final-cta" class="cta-button">¡Quiero Dar el Primer Paso!</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="solution" class="section-with-bg" aria-labelledby="solution-heading"> 
+             <div class="container">
+                <h2 id="solution-heading" class="text-center">Beneficios que Transformarán tu Carrera Inmobiliaria con LYRAESTATE</h2>
+                <p class="text-center">Más que una plataforma, te ofrecemos un ecosistema de crecimiento y éxito.</p>
+                
                 <div class="benefits-grid">
                     <div class="benefit-item">
                         <h3>Emprende Sin Barreras</h3>
-                        <p>Inicia tu negocio inmobiliario digital sin necesidad de una gran inversión inicial ni los riesgos tradicionales. Te damos todo para empezar.</p>
+                        <p>Inicia tu negocio inmobiliario digital sin necesidad de una gran inversión inicial ni los riesgos tradicionales. Te damos todo para empezar con confianza.</p>
                     </div>
                     <div class="benefit-item">
-                        <h3>Tecnología de Vanguardia</h3>
-                        <p>Accede a una plataforma intuitiva que simplifica cada proceso, desde la captación hasta el cierre, conectando a todos los actores del mercado.</p>
+                        <h3>Tecnología de Vanguardia a tu Alcance</h3>
+                        <p>Accede a una plataforma intuitiva que simplifica cada proceso, desde la captación hasta el cierre, conectando a todos los actores del mercado de forma eficiente.</p>
                     </div>
                     <div class="benefit-item">
                         <h3>Resultados Desde el Primer Momento</h3>
-                        <p>Con nuestro sistema de leads y el acompañamiento experto, estarás listo para trabajar y avanzar hacia tus objetivos desde el inicio.</p>
+                        <p>Con nuestro sistema de leads garantizados y el acompañamiento experto de LYRAESTATE, estarás listo para trabajar y avanzar hacia tus objetivos financieros desde el inicio.</p>
+                    </div>
+                     <div class="benefit-item">
+                        <h3>Flexibilidad y Autonomía</h3>
+                        <p>Gestiona tu tiempo y tu negocio como prefieras. Nuestra plataforma te da la libertad de trabajar desde donde quieras, a tu ritmo.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h3>Comunidad y Networking</h3>
+                        <p>Forma parte de una red nacional de profesionales, comparte experiencias, colabora en operaciones y crece junto a otros emprendedores en la comunidad LYRAESTATE.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h3>Soporte Integral y Continuo</h3>
+                        <p>No estarás solo. Nuestro equipo de expertos te brinda asesoramiento legal, técnico, de marketing y formación constante.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="roles" aria-labelledby="roles-heading">
+        <section id="income-opportunities" style="background-color: var(--color-fondo-seccion-alterna);" aria-labelledby="income-heading"> 
             <div class="container">
-                <h2 id="roles-heading" class="text-center">Elige Tu Camino al Éxito: Tú Decides Cómo Crecer</h2>
-                <p class="text-center">Nuestra plataforma te da la flexibilidad de elegir el rol que mejor se adapte a tus ambiciones y estilo de vida.</p>
-                
-                <video class="video-seccion" autoplay muted loop playsinline poster="poster3.jpg" aria-label="Presentación de los roles de prescriptor y agente profesional.">
-                    <source src="3.mp4" type="video/mp4">
-                    Tu navegador no soporta la etiqueta de vídeo. Por favor, actualízalo.
-                </video>
-
-                <div class="roles-comparison">
-                    <div class="role-option">
-                        <h3>Prescriptor Inmobiliario</h3>
-                        <p>Ideal para generar ingresos extra recomendando inmuebles. Gana comisiones por cada operación cerrada gracias a ti, con total libertad.</p>
-                        <a href="#final-cta" class="cta-button small">Más Info Prescriptor</a>
-                    </div>
-                    <div class="role-option">
-                        <h3>Agente Profesional Inmobiliario</h3>
-                        <p>Construye y escala tu propia agencia digital. Gestiona operaciones, accede a herramientas pro y desarrolla una carrera lucrativa con nuestro apoyo.</p>
-                        <a href="#final-cta" class="cta-button small">Más Info Agente Pro</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="tools" aria-labelledby="tools-heading">
-            <div class="container">
-                <h2 id="tools-heading" class="text-center">Equipado para el Éxito: Herramientas y Soporte Sin Igual</h2>
-                <p class="text-center">Como Agente Profesional, tendrás un arsenal de recursos para maximizar tu eficiencia y resultados:</p>
-                
-                <img src="foto4.png" alt="Panel de control del CRM inmobiliario con herramientas avanzadas para agentes profesionales." class="imagen-seccion">
-
-                <ul class="tools-list margin-top-2">
-                    <li>CRM Completo e Intuitivo</li>
-                    <li>Volcado Automático a Portales</li>
-                    <li>Herramientas de Marketing Digital</li>
-                    <li>Notas Simples y Valoraciones</li>
-                    <li>Departamento Jurídico Experto</li>
-                    <li>Certificados Energéticos</li>
-                    <li>Fotografía Profesional y Tours Virtuales</li>
-                    <li>Homestaging Digital Avanzado</li>
-                    <li>Formación Continua y Actualizada</li>
-                    <li>Asesoría Especializada Personalizada</li>
-                    <li>Programas de Apadrinamiento</li>
-                    <li>Red Nacional de Colaboradores</li>
-                    <li>Sistema de Prescriptores para tu Equipo</li>
-                </ul>
-                <p class="text-center margin-top-2"><strong>¡Todo lo que necesitas para triunfar, en un solo lugar!</strong></p>
-            </div>
-        </section>
-
-        <section id="income-opportunities" style="background-color: #E8F3F2;" aria-labelledby="income-heading">
-            <div class="container">
-                <h2 id="income-heading" class="text-center">Maximiza Tus Ganancias: Múltiples Vías de Ingreso</h2>
+                <h2 id="income-heading" class="text-center">Maximiza Tus Ganancias con LYRAESTATE: Múltiples Vías de Ingreso</h2>
                 <p class="text-center">No solo ganes por tus ventas. Nuestra plataforma te abre puertas a un crecimiento financiero sin precedentes.</p>
                 <div class="income-grid">
                     <div class="income-item">
-                        <h3>Ingresos por Ventas y Equipo</h3>
-                        <p>Genera comisiones por tus operaciones y multiplica tus ganancias creando tu propia red de colaboradores. ¡El límite lo pones tú!</p>
+                        <h3>Ingresos por Ventas y Alquileres</h3>
+                        <p>Genera comisiones directas por cada operación inmobiliaria que cierres, ya sea venta o alquiler, con un potencial ilimitado.</p>
                     </div>
                     <div class="income-item">
-                        <h3>Ingresos Recurrentes Atractivos</h3>
-                        <p>Ofrece servicios complementarios (financiación, seguros, suministros) y construye un flujo de ingresos pasivos que te dé estabilidad y crecimiento.</p>
+                        <h3>Crea y Lidera tu Propio Equipo</h3>
+                        <p>Como Agente Profesional LYRAESTATE, puedes apadrinar a otros agentes y prescriptores, generando ingresos pasivos por el éxito de tu red.</p>
+                    </div>
+                    <div class="income-item">
+                        <h3>Servicios Complementarios Rentables</h3>
+                        <p>Ofrece servicios de valor añadido (financiación, seguros, reformas, mudanzas, suministros) y construye un flujo de ingresos recurrentes.</p>
                     </div>
                 </div>
             </div>
         </section>
         
-        <section id="why-now" aria-labelledby="why-now-heading">
-            <div class="container text-center">
-                <h2 id="why-now-heading">El Momento es AHORA: El Sector Inmobiliario Vive su Mejor Época</h2>
-                <p>El mercado está en auge y la digitalización es imparable. Nuestra plataforma te posiciona en la vanguardia, listo para capitalizar esta ola de oportunidades. Representamos el <strong>futuro del sector</strong>, un modelo para <strong>emprender, escalar y vivir del sector</strong> con las ventajas de lo digital y acompañamiento experto.</p>
-                
-                <!-- MODIFICACIÓN DEL VIDEO AQUÍ -->
-                <video class="video-seccion" controls playsinline poster="poster_futuro.jpg" aria-label="El futuro del sector inmobiliario y cómo nuestra plataforma te ayuda a triunfar.">
-                    <source src="video.mp4" type="video/mp4">
-                    <!-- Considera añadir un formato .webm también para mejor compatibilidad -->
-                    <!-- <source src="video.webm" type="video/webm"> -->
-                    Tu navegador no soporta la etiqueta de vídeo. Por favor, actualízalo.
-                </video>
+        <section id="testimonios-section" aria-labelledby="testimonios-heading">
+            <div class="container">
+                 <div class="section-header-with-logo text-center">
+                    <img src="logo.png" alt="LYRAESTATE Logo" class="section-logo">
+                    <h2 id="testimonios-heading" class="section-title-after-logo text-center">Lo que Dicen Nuestros Agentes y Prescriptores de LYRAESTATE</h2>
+                </div>
+                <div class="benefits-grid"> 
+                    <div class="testimonial-item">
+                        <p>"Desde que me uní a LYRAESTATE como Agente Profesional, mi cartera de propiedades creció exponencialmente gracias a los leads que me facilitaron. ¡Y el CRM es una maravilla! Por fin siento que tengo el control de mi negocio."</p>
+                        <span class="author">- Laura G., Agente Profesional LYRAESTATE</span>
+                    </div>
+                    <div class="testimonial-item">
+                        <p>"Empecé como Prescriptor en LYRAESTATE para ganar un extra y ha superado mis expectativas. Es fácil, flexible y las comisiones son muy buenas. Ya he referido varias propiedades con éxito. ¡Totalmente recomendable!"</p>
+                        <span class="author">- Carlos M., Prescriptor Inmobiliario LYRAESTATE</span>
+                    </div>
+                    <div class="testimonial-item">
+                        <p>"Tenía dudas sobre emprender online, pero el soporte y la formación de LYRAESTATE han sido clave. La plataforma es muy completa y el equipo siempre está dispuesto a ayudar. Ya cerré mis primeras operaciones."</p>
+                        <span class="author">- Sofía R., Nueva Agente Digital LYRAESTATE</span>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- FINAL CTA Y FORMULARIO DE CONTACTO -->
+        <section id="why-now" class="section-with-bg" aria-labelledby="why-now-heading"> 
+            <div class="container text-center">
+                <h2 id="why-now-heading">El Momento es AHORA con LYRAESTATE: El Sector Inmobiliario Vive su Mejor Época Digital</h2>
+                <p>El mercado está en auge y la digitalización es imparable. La plataforma LYRAESTATE te posiciona en la vanguardia, listo para capitalizar esta ola de oportunidades. Representamos el <strong>futuro del sector</strong>, un modelo para <strong>emprender, escalar y vivir del sector</strong> con las ventajas de lo digital y acompañamiento experto.</p>
+                
+                <video class="video-seccion" controls playsinline poster="poster_futuro.jpg" aria-label="El futuro del sector inmobiliario y cómo la plataforma LYRAESTATE te ayuda a triunfar.">
+                    <source src="video.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de vídeo. Por favor, actualízalo.
+                </video>
+                <p class="margin-top-2">No dejes pasar la oportunidad de ser pionero en la nueva era inmobiliaria. Con LYRAESTATE, tienes la tecnología, el soporte y los clientes para empezar a construir tu éxito hoy mismo.</p>
+            </div>
+        </section>
+
+        <section id="faq-section" aria-labelledby="faq-heading">
+            <div class="container">
+                <div class="section-header-with-logo text-center">
+                    <img src="logo.png" alt="LYRAESTATE Logo" class="section-logo">
+                    <h2 id="faq-heading" class="section-title-after-logo text-center">Preguntas Frecuentes sobre LYRAESTATE</h2>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <h4>¿Necesito experiencia previa en el sector inmobiliario para unirme a LYRAESTATE?</h4>
+                        <p>No es imprescindible. LYRAESTATE ofrece formación completa tanto para Prescriptores como para Agentes Profesionales. Tu motivación y ganas de aprender son lo más importante. Si tienes experiencia, ¡genial!, te ayudaremos a potenciarla.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>¿Cuál es la inversión inicial para unirme a LYRAESTATE?</h4>
+                        <p>Nuestro objetivo es minimizar las barreras de entrada. Los detalles específicos del plan de Agente Profesional y los beneficios de Prescriptor se discuten de forma personalizada con un asesor de LYRAESTATE para ofrecerte la mejor opción. Contáctanos para una consulta sin compromiso.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>¿Cómo funciona la garantía de leads de hasta 400.000€ en propiedades de LYRAESTATE?</h4>
+                        <p>Para nuestros Agentes Profesionales, nos comprometemos a facilitarte contactos de propietarios interesados en vender sus inmuebles, hasta que la suma del valor de estas propiedades alcance los 400.000€. Es nuestra forma de asegurar que tienes materia prima para trabajar desde el inicio con LYRAESTATE.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>¿Qué tipo de soporte recibiré con LYRAESTATE?</h4>
+                        <p>Ofrecemos soporte integral: técnico para la plataforma, legal para tus operaciones, de marketing para promocionarte, y formación continua a través de webinars, tutoriales y asesoramiento personalizado.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>¿Puedo trabajar a tiempo parcial como Prescriptor en LYRAESTATE?</h4>
+                        <p>¡Absolutamente! El rol de Prescriptor está diseñado para ofrecer máxima flexibilidad. Puedes dedicarle el tiempo que desees, compaginándolo con otras actividades y generando ingresos extra por tus referidos.</p>
+                    </div>
+                </div>
+                 <div class="text-center margin-top-2">
+                    <a href="#final-cta" class="cta-button secondary">Tengo más preguntas</a>
+                </div>
+            </div>
+        </section>
+
         <section id="final-cta" aria-labelledby="final-cta-heading">
             <div class="container text-center"> 
-                <h2 id="final-cta-heading">¿Listo para Transformar Tu Futuro Profesional y Obtener Tus Primeros Clientes?</h2>
-                <p>No esperes más. Da el primer paso hacia tu independencia financiera y el éxito en el sector inmobiliario. Completa el formulario y un asesor experto te contactará para mostrarte cómo.</p>
+                <h2 id="final-cta-heading">¿Listo para Transformar Tu Futuro Profesional con LYRAESTATE y Obtener Tus Primeros Clientes?</h2>
+                <p>No esperes más. Da el primer paso hacia tu independencia financiera y el éxito en el sector inmobiliario. Completa el formulario y un asesor experto de LYRAESTATE te contactará para mostrarte cómo.</p>
                 
                 <div class="contact-form-container">
-                    <h3>¡Empieza Tu Camino Hoy!</h3>
+                    <h3>¡Empieza Tu Camino Hoy con LYRAESTATE!</h3>
                     <form action="https://formspree.io/f/mkgrlrpj" method="POST"> 
                         <label for="name">Nombre Completo:</label>
                         <input type="text" id="name" name="name" placeholder="Ej: Ana García" required>
@@ -585,7 +850,7 @@
                         <label for="phone">Teléfono (Opcional):</label>
                         <input type="text" id="phone" name="phone" placeholder="Ej: 600123456">
 
-                        <label for="role_interest">Rol de Interés Principal:</label>
+                        <label for="role_interest">Rol de Interés Principal en LYRAESTATE:</label>
                         <select id="role_interest" name="role_interest">
                             <option value="agent">Agente Profesional (¡Quiero mis leads!)</option>
                             <option value="prescriptor">Prescriptor Inmobiliario</option>
@@ -595,7 +860,7 @@
                         <label for="message">¿Algo más que debamos saber? (Opcional):</label>
                         <textarea id="message" name="message" placeholder="Ej: Tengo experiencia previa, quiero empezar lo antes posible..."></textarea>
 
-                        <input type="submit" value="¡Sí, QUIERO MIS LEADS Y EMPEZAR!" class="cta-button">
+                        <input type="submit" value="¡Sí, QUIERO MIS LEADS Y EMPEZAR CON LYRAESTATE!" class="cta-button">
                     </form>
                 </div>
             </div>
@@ -604,9 +869,34 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Tu Plataforma Inmobiliaria Digital. Todos los derechos reservados.</p>
+            <p>&copy; 2024 LYRAESTATE. Todos los derechos reservados.</p>
             <p>Transformando el sector inmobiliario, un agente a la vez.</p>
+            <p>
+                <a href="#privacidad">Política de Privacidad</a> | 
+                <a href="#terminos">Términos y Condiciones</a>
+            </p>
         </div>
     </footer>
+
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        navToggle.addEventListener('click', () => {
+            const isExpanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
+            navToggle.setAttribute('aria-expanded', !isExpanded);
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (link.getAttribute('href').startsWith('#') && navLinks.classList.contains('active')) {
+                    navToggle.setAttribute('aria-expanded', 'false');
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+    </script>
+
 </body>
 </html>
